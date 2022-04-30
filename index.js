@@ -1,8 +1,10 @@
 const express = require("express")
 const app = express()
+const porta= 3000 
+app.listen(porta,()=> {console.log(`Rodando na porta ${porta}`)}) 
 
 app.use (express.urlencoded({extended:true}))
-app.use (express.json)
+app.use (express.json())
 app.get ('/', (req,res) =>{ 
     res.json({'mensagem': 'Consulta realizada'})}) 
 app.post('/cadastracliente', (req,res) =>{ 
@@ -16,5 +18,3 @@ app.post('/cadastracliente', (req,res) =>{
         return 
 } 
     }) 
-const porta= 3000 
-app.listen(porta,()=> {console.log(`Rodando na porta ${porta}`)}) 
